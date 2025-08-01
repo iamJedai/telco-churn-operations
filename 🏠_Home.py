@@ -13,7 +13,7 @@ st.set_page_config(
 # --- MODEL LOADING ---
 @st.cache_resource
 def load_model():
-model = joblib.load('models/churn_model_logistic_regression.pkl')
+    model = joblib.load('churn_model_logistic_regression.pkl')
     return model
 
 model = load_model()
