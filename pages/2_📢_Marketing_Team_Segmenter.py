@@ -15,7 +15,7 @@ st.set_page_config(
 @st.cache_resource
 def load_model():
     """Load the trained model pipeline."""
-    model = joblib.load('models/churn_model_logistic_regression.pkl')
+    model = joblib.load('churn_model_logistic_regression.pkl')
     return model
 
 # Use st.cache_data for data that can be loaded and processed
