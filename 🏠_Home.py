@@ -70,3 +70,40 @@ if submitted:
     else:
         st.error(f"HIGH RISK (Probability: {churn_probability:.2%})")
         st.write("Immediate action recommended! Consider offering a loyalty discount or plan upgrade.")
+
+# 🏠_Home.py
+
+# --- Add these print statements for debugging ---
+print("--- App execution started. ---")
+
+import streamlit as st
+import pandas as pd
+import joblib
+
+print("--- Libraries imported successfully. ---")
+
+# Page configuration
+st.set_page_config(
+    page_title="Telco Churn Prediction",
+    page_icon="🏠",
+    layout="centered"
+)
+
+print("--- Page config set. ---")
+
+# --- MODEL LOADING ---
+@st.cache_resource
+def load_model():
+    print("--- Attempting to execute load_model function... ---")
+    model = joblib.load('churn_model_logistic_regression.pkl')
+    print("--- joblib.load() completed successfully. ---")
+    return model
+
+print("--- About to call load_model(). ---")
+model = load_model()
+print("--- Model loaded into 'model' variable. ---")
+
+# --- APP LAYOUT ---
+print("--- Starting to build the Streamlit UI. ---")
+st.title("👤 Customer Service - Churn Risk Checker")
+# ... rest of your code
